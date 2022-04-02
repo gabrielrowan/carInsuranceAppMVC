@@ -22,8 +22,6 @@ return function (App $app) {
     $app->post('/generateQuotePage', function ($request, $response, $args) use ($container) {
         $CarInsuranceModel = $container->get('CarInsuranceModel');
         $formData = $request->getParsedBody();
-        $args['formData'] = 'hello I am working';
-        //var_dump($formData);
         $carTypeModel = $container->get('CarTypeModel');
         $carTypeMultiplier = $carTypeModel->getCarTypeMultiplierByID(intval($formData['carType']))['type_multiplier'];
         $coverTypeModel = $container->get('CoverTypeModel');
@@ -34,17 +32,5 @@ return function (App $app) {
         $renderer = $container->get('renderer');
         return $renderer->render($response, "generateQuotePage.phtml", $args);
     });
-
-
-    $app->post('/quoteAccepted', function ($request, $response, $args) use ($container) {
-        $renderer = $container->get('renderer');
-        return $renderer->render($response, "quoteAccepted.phtml", $args);
-    });
-
-    $app->post('/quoteRejected', function ($request, $response, $args) use ($container) {
-        $renderer = $container->get('renderer');
-        return $renderer->render($response, "quoteRejected.phtml", $args);
-    });
-
 
 };
