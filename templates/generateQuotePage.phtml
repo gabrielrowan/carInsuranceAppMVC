@@ -14,13 +14,6 @@
     <h1 class="mb-5">
         <?= "£" . number_format($quoteValue, 2); ?>
     </h1>
-    <h2 class="mb-4">Would you like to accept this quote?</h2>
-    <form class="mb-2" method="post" action="/quoteAccepted">
-        <button type="submit" class="btn btn-primary">What a bargain, sign me up!</button>
-    </form>
-    <form method="post" action="/quoteRejected">
-        <button type="submit" class="btn btn-outline-primary">No thank you</button>
-    </form>
 </div>
 </body>
 </html>
