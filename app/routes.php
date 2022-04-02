@@ -17,10 +17,8 @@ return function (App $app) {
         return $renderer->render($response, "homePage.phtml", $args);
     });
 
-//    $CarInsuranceModel = $container->get('CarInsuranceModel');
-
     $app->post('/generateQuotePage', function ($request, $response, $args) use ($container) {
-        $CarInsuranceModel = $container->get('CarInsuranceModel');
+        $NewQuoteModel = $container->get('NewQuoteModel');
         $formData = $request->getParsedBody();
         $carTypeModel = $container->get('CarTypeModel');
         $carTypeMultiplier = $carTypeModel->getCarTypeMultiplierByID(intval($formData['carType']))['type_multiplier'];
@@ -28,9 +26,8 @@ return function (App $app) {
         $coverTypeMultiplier = $coverTypeModel->getCoverMultiplierByID(intval($formData['coverType']))['cover_multiplier'];
         $quoteValue = intval($formData['carValue']) * floatval($carTypeMultiplier) * floatval($coverTypeMultiplier);
         $args['quoteValue'] = $quoteValue;
-        $generateNewQuoteDetails = $CarInsuranceModel->insertNewCustomerDetails($formData['customerName'], intval($formData['carType']), intval($formData['coverType']), strval($quoteValue), intval($formData['carValue']));
+        $generateNewQuoteDetails = $NewQuoteModel->insertNewCustomerDetails($formData['customerName'], intval($formData['carType']), intval($formData['coverType']), strval($quoteValue), intval($formData['carValue']));
         $renderer = $container->get('renderer');
         return $renderer->render($response, "generateQuotePage.phtml", $args);
     });
-
 };

@@ -39,7 +39,7 @@ return function (ContainerBuilder $containerBuilder) {
         return $db;
     };
 
-    $container['CarInsuranceModel'] = DI\factory('\CarInsurance\Factories\CarInsuranceModelFactory');
+    $container['NewQuoteModel'] = DI\factory('\CarInsurance\Factories\NewQuoteModelFactory');
     $container['QuotePageController'] = DI\factory('\CarInsurance\Factories\QuotePageControllerFactory');
     $container['CarTypeModel'] = DI\factory('\CarInsurance\Factories\CarTypeModelFactory');
     $container['CoverTypeModel'] = DI\factory('\CarInsurance\Factories\CoverTypeModelFactory');
