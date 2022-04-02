@@ -2,7 +2,7 @@
 
 namespace CarInsurance\Models;
 
-class CarInsuranceModel
+class NewQuoteModel
 {
     private $db;
 
@@ -10,7 +10,6 @@ class CarInsuranceModel
     {
         $this->db = $db;
     }
-
 
     public function insertNewCustomerDetails(string $customerName, int $carTypeID, int $coverTypeID, string $quoteCost, int $carValue)
     {
@@ -23,6 +22,4 @@ VALUES (:name, :car_type_id, :cover_id, :cost, :car_value);");
         $query->bindParam(':car_value', $carValue);
         $query->execute();
     }
-
-    
 }
