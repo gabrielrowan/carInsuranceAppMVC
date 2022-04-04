@@ -29,6 +29,9 @@ return function (App $app) {
         $id = $quoteModel->getCustomerID();
         $args['id'] = $id;
 
+        $retrieveQuoteDetails = $quoteModel->retrieveQuoteDetails(intval($id));
+        $args['customerName'] = $retrieveQuoteDetails['customer_name'];
+
         $renderer = $container->get('renderer');
         return $renderer->render($response, "generateQuotePage.phtml", $args);
     });
