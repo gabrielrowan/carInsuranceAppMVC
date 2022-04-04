@@ -3,13 +3,13 @@
 namespace CarInsurance\Factories;
 
 use Psr\Container\ContainerInterface;
-use CarInsurance\Models\NewQuoteModel;
+use CarInsurance\Models\QuoteModel;
 
-class NewQuoteModelFactory
+class QuoteModelFactory
 {
     public function __invoke(ContainerInterface $container)
     {
         $db = $container->get('dbConn');
-        return new NewQuoteModel($db);
+        return new QuoteModel($db);
     }
 }

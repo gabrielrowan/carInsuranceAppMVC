@@ -9,12 +9,23 @@
 </head>
 <body class="bg-light">
 <div class="container pt-5 px-3 pb-3 bg-white">
-    <h2 class="mb-5 text-success">Congratulations! &#127881</h2><h4 class="mb-4">You've been accepted to apply for car
+    <h2 class="mb-5 text-success">Congratulations! &#127881</h2><h4 class="mb-4">You've been
+        accepted to apply for car
         insurance with us.</h4>
     <h6 class="mb-4">Your quote is:</h6>
     <h1 class="mb-4">
         <?= "£" . number_format($quoteValue, 2); ?>
     </h1>
+    <h4 class="mb-4">Would you like to accept this quote?</h4>
+    <div class="d-flex flex-row gap-2">
+        <form method="post" action="/acceptQuote">
+            <input type='hidden' name='id' value='<?= intval($id) ?>'/>
+            <button class="btn btn-success mr-3" type="submit">Accept Quote</button>
+        </form>
+        <button class="btn btn-outline-success" type="button"><a class="text-decoration-none text-success" href="/">No
+                thank you</a>
+        </button>
+    </div>
 </div>
 </body>
 </html>

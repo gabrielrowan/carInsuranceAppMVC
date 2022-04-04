@@ -2,7 +2,7 @@
 
 namespace CarInsurance\Models;
 
-class NewQuoteModel
+class QuoteModel
 {
     private $db;
 
@@ -22,4 +22,25 @@ VALUES (:name, :car_type_id, :cover_id, :cost, :car_value);");
         $query->bindParam(':car_value', $carValue);
         $query->execute();
     }
+
+    public function acceptQuote(int $id)
+    {
+        $query = $this->db->prepare("UPDATE `quotes` SET `accepted` = 1 WHERE `id` = :id");
+        $query->bindParam(':id', $id);
+        return $query->execute();
+    }
+
+    public function getCustomerID()
+    {
+        return $this->db->lastInsertId();
+    }
+
+    public function retrieveQuoteDetails(int $id)
+    {
+        $query = $this->db->prepare("SELECT `customer_name` FROM `quotes` WHERE `quotes`.`id`=" . $id);
+        $query->execute();
+        return $query->fetch();
+    }
+
+
 }

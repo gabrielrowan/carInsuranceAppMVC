@@ -39,10 +39,13 @@ return function (ContainerBuilder $containerBuilder) {
         return $db;
     };
 
-    $container['NewQuoteModel'] = DI\factory('\CarInsurance\Factories\NewQuoteModelFactory');
-    $container['QuotePageController'] = DI\factory('\CarInsurance\Factories\QuotePageControllerFactory');
     $container['CarTypeModel'] = DI\factory('\CarInsurance\Factories\CarTypeModelFactory');
     $container['CoverTypeModel'] = DI\factory('\CarInsurance\Factories\CoverTypeModelFactory');
+    $container['QuoteModel'] = DI\factory('\CarInsurance\Factories\QuoteModelFactory');
+    $container['AcceptQuoteModel'] = DI\factory('\CarInsurance\Factories\AcceptQuoteModelFactory');
+    $container['QuotePageController'] = DI\factory('\CarInsurance\Factories\QuotePageControllerFactory');
+    $container['HomePageController'] = DI\factory('\CarInsurance\Factories\HomePageControllerFactory');
+    $container['QuoteAcceptedController'] = DI\factory('\CarInsurance\Factories\QuoteAcceptedControllerFactory');
 
     $containerBuilder->addDefinitions($container);
 };

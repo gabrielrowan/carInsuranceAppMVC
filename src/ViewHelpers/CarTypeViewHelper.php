@@ -8,6 +8,7 @@ class CarTypeViewHelper
     {
         $result = '';
         foreach ($carTypes as $carType) {
+            
             $result .= '<option value="' . $carType['id'] . '">' . $carType['type'] . '</option>';
         }
         return $result;
