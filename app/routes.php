@@ -12,7 +12,7 @@ return function (App $app) {
     $app->get('/generateQuotePage.phtml', 'QuotePageController');
 
     $app->post('/generateQuotePage', function ($request, $response, $args) use ($container) {
-        $QuoteModel = $container->get('QuoteModel');
+        $quoteModel = $container->get('QuoteModel');
         $formData = $request->getParsedBody();
 
         $carTypeModel = $container->get('CarTypeModel');
@@ -24,9 +24,9 @@ return function (App $app) {
         $quoteValue = intval($formData['carValue']) * floatval($carTypeMultiplier) * floatval($coverTypeMultiplier);
 
         $args['quoteValue'] = $quoteValue;
-        $generateNewQuoteDetails = $QuoteModel->insertNewCustomerDetails($formData['customerName'], intval($formData['carType']), intval($formData['coverType']), strval($quoteValue), intval($formData['carValue']));
+        $generateNewQuoteDetails = $quoteModel->insertNewCustomerDetails($formData['customerName'], intval($formData['carType']), intval($formData['coverType']), strval($quoteValue), intval($formData['carValue']));
 
-        $id = $QuoteModel->getCustomerID();
+        $id = $quoteModel->getCustomerID();
         $args['id'] = $id;
 
         $renderer = $container->get('renderer');
