@@ -1,4 +1,5 @@
-# How to run this project locally
+# How to run the car insurance web app locally 
+
 
 1. Download the SQL file ```carinsurance_db``` and import it into your SQL database software.
 You will see three tables inside the database - `car_type`, `cover_type` & `quotes`
