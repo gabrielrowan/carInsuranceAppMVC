@@ -1,39 +1,31 @@
-# Slim Framework 4 Skeleton Application
+# How to run this project locally
 
-Use this skeleton application to quickly setup and start working on a new Slim Framework 4 application. This application uses the latest Slim 4 with Slim PSR-7 implementation and PHP-DI container implementation along with the PHP-View template renderer. It also uses the Monolog logger.
+1. Download the SQL file ```carinsurance_db``` and import it into your SQL database software.
+You will see three tables inside the database - `car_type`, `cover_type` & `quotes`
 
-This skeleton application was built for Composer. This makes setting up a new Slim Framework application quick and easy.
-
-## Install the Application
-
-Create a new directory with your project name, e.g:
-
+2. Create a new directory with your project name, e.g:
 
 ```bash
-mkdir academyProject
+mkdir carInsuranceWebApp
 ```
 
-Once inside the new directory, clone this repo:
+3. Once inside the new directory, clone this repo:
 
 ```bash
-git clone git@github.com:Mayden-Academy/slim4-skeleton.git .
+git@github.com:gabrielrowan/carInsuranceAppMVC.git
 ```
 
-One cloned, you must install the slim components by running:
+4. Once cloned, install the slim components by running:
 
 ```bash
 composer install
 ```
 
-To run the application locally:
+5. To run the application, use this command:
 ```bash
 composer start
 
-```
-Run this command in the application directory to run the test suite
-```bash
-composer test
-```
 
-That's it! Now go build something cool.
-# carInsuranceAppMVC
+That's it! Now you can see how the database updates when new quote data is added, and when the customer chooses to accept their quote. 
+
+
