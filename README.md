@@ -25,7 +25,7 @@ composer install
 5. To run the application, use this command:
 ```bash
 composer start
-
+```
 
 Now you can see how the database updates when new quote data is added, and when the customer chooses to accept their quote! 
 
