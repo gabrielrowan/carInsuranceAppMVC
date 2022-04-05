@@ -27,6 +27,6 @@ composer install
 composer start
 
 
-That's it! Now you can see how the database updates when new quote data is added, and when the customer chooses to accept their quote. 
+Now you can see how the database updates when new quote data is added, and when the customer chooses to accept their quote! 
 
 
