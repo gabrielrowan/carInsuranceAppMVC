@@ -4,6 +4,7 @@ namespace CarInsurance\Controllers;
 
 use CarInsurance\Models\CarTypeModel;
 use CarInsurance\Models\CoverTypeModel;
+use CarInsurance\Models\QuoteModel;
 use Slim\Views\PhpRenderer;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -33,6 +34,8 @@ class QuotePageController
         $generateNewQuoteDetails = $this->quoteModel->insertNewCustomerDetails($formData['customerName'], intval($formData['carType']), intval($formData['coverType']), strval($quoteValue), intval($formData['carValue']));
         $id = $this->quoteModel->getCustomerID();
         $args['id'] = $id;
+        $retrieveQuoteDetails = $this->quoteModel->retrieveQuoteDetails(intval($id));
+        $args['customerName'] = $retrieveQuoteDetails['customer_name'];
         return $this->renderer->render($response, "generateQuotePage.phtml", $args);
     }
 }

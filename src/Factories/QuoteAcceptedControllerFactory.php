@@ -9,7 +9,8 @@ class QuoteAcceptedControllerFactory
 {
     public function __invoke(ContainerInterface $container)
     {
-        $db = $container->get('dbConn');
-        return new QuoteAcceptedController($db);
+        $renderer = $container->get('renderer');
+        $quoteModel = $container->get('QuoteModel');
+        return new QuoteAcceptedController($renderer, $quoteModel);
     }
 }

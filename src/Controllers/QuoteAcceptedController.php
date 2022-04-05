@@ -23,6 +23,8 @@ class QuoteAcceptedController
         $formData = $request->getParsedBody();
         $id = intval($formData['id']);
         $this->QuoteModel->acceptQuote($id);
+        $retrievedQuoteData = $this->QuoteModel->retrieveQuoteDetails($id);
+        $args['customer_name'] = $retrievedQuoteData['customer_name'];
         return $this->renderer->render($response, "quoteAccepted.phtml", $args);
     }
 }

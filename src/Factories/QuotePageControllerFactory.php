@@ -3,14 +3,16 @@
 namespace CarInsurance\Factories;
 
 use Psr\Container\ContainerInterface;
-use CarInsurance\Controllers\QuotePageControllerController;
+use CarInsurance\Controllers\QuotePageController;
 
 class QuotePageControllerFactory
 {
     public function __invoke(ContainerInterface $container)
     {
-        $CarInsuranceModel = $container->get('CarInsuranceModel');
+        $quoteModel = $container->get('QuoteModel');
         $renderer = $container->get('renderer');
-        return new QuotePageController($renderer, $CarInsuranceModel);
+        $carTypeModel = $container->get('CarTypeModel');
+        $coverTypeModel = $container->get('CoverTypeModel');
+        return new QuotePageController($renderer, $carTypeModel, $coverTypeModel, $quoteModel);
     }
 }
